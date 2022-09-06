@@ -1,4 +1,4 @@
-package kz.zhelezyaka.springquickly.autowired;
+package kz.zhelezyaka.springquickly.autowired.fields;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

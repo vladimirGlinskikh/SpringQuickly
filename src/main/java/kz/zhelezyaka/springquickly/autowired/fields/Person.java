@@ -1,4 +1,4 @@
-package kz.zhelezyaka.springquickly.autowired;
+package kz.zhelezyaka.springquickly.autowired.fields;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
