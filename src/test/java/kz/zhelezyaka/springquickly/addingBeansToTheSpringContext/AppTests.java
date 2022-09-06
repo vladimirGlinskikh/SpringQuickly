@@ -38,7 +38,7 @@ class AppTests {
     void testUserWasAdded() {
         User user = context.getBean(User.class);
         assertNotNull(user.getAge());
-        assertNull(user.getName());
+        assertNotNull(user.getName());
     }
 
     @Test
