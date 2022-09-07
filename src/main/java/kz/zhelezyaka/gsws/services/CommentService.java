@@ -1,0 +1,22 @@
+package kz.zhelezyaka.gsws.services;
+
+import kz.zhelezyaka.gsws.model.Comment;
+import kz.zhelezyaka.gsws.proxies.CommentNotificationProxy;
+import kz.zhelezyaka.gsws.repositories.CommentRepository;
+
+public class CommentService {
+    private final CommentRepository commentRepository;
+    private final CommentNotificationProxy commentNotificationProxy;
+
+    public CommentService(
+            CommentRepository commentRepository,
+            CommentNotificationProxy commentNotificationProxy) {
+        this.commentRepository = commentRepository;
+        this.commentNotificationProxy = commentNotificationProxy;
+    }
+
+    public void publishComment(Comment comment) {
+        commentRepository.storeComment(comment);
+        commentNotificationProxy.sendComment(comment);
+    }
+}
