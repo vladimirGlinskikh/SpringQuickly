@@ -2,14 +2,14 @@ package kz.zhelezyaka.gsws.proxies;
 
 import kz.zhelezyaka.gsws.model.Comment;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("EMAIL")
-public class EmailCommentNotificationProxy implements CommentNotificationProxy {
+@Qualifier("PUSH")
+public class CommentPushNotificationProxy implements CommentNotificationProxy {
     @Override
     public void sendComment(Comment comment) {
-        System.out.println("Sending Email notification for comment: "
-                + comment.getText());
+        System.out.println("Sending Push notification for comment: " + comment.getText());
     }
 }

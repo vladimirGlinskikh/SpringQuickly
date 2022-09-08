@@ -3,6 +3,7 @@ package kz.zhelezyaka.gsws.services;
 import kz.zhelezyaka.gsws.model.Comment;
 import kz.zhelezyaka.gsws.proxies.CommentNotificationProxy;
 import kz.zhelezyaka.gsws.repositories.CommentRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,7 +13,7 @@ public class CommentService {
 
     public CommentService(
             CommentRepository commentRepository,
-            CommentNotificationProxy commentNotificationProxy) {
+            @Qualifier("EMAIL") CommentNotificationProxy commentNotificationProxy) {
         this.commentRepository = commentRepository;
         this.commentNotificationProxy = commentNotificationProxy;
     }
