@@ -1,21 +1,19 @@
 package kz.zhelezyaka.gsws.main;
 
+import kz.zhelezyaka.gsws.config.ProjectConfiguration;
 import kz.zhelezyaka.gsws.model.Comment;
-import kz.zhelezyaka.gsws.proxies.EmailCommentNotificationProxy;
-import kz.zhelezyaka.gsws.repositories.DBCommentRepository;
 import kz.zhelezyaka.gsws.services.CommentService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
-        var commentRepository = new DBCommentRepository();
-        var commentNotificationProxy = new EmailCommentNotificationProxy();
-
-        var commentService = new CommentService(commentRepository, commentNotificationProxy);
+        var context = new AnnotationConfigApplicationContext(ProjectConfiguration.class);
 
         var comment = new Comment();
         comment.setAuthor("Vladimir");
-        comment.setText("Test text");
+        comment.setText("Test comment");
 
+        var commentService = context.getBean(CommentService.class);
         commentService.publishComment(comment);
     }
 }

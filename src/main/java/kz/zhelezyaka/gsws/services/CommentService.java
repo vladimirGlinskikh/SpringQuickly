@@ -3,7 +3,9 @@ package kz.zhelezyaka.gsws.services;
 import kz.zhelezyaka.gsws.model.Comment;
 import kz.zhelezyaka.gsws.proxies.CommentNotificationProxy;
 import kz.zhelezyaka.gsws.repositories.CommentRepository;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CommentService {
     private final CommentRepository commentRepository;
     private final CommentNotificationProxy commentNotificationProxy;

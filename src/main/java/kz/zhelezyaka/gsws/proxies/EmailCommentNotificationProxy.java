@@ -1,7 +1,9 @@
 package kz.zhelezyaka.gsws.proxies;
 
 import kz.zhelezyaka.gsws.model.Comment;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EmailCommentNotificationProxy implements CommentNotificationProxy {
     @Override
     public void sendComment(Comment comment) {
