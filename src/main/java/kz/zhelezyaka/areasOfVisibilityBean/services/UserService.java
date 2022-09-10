@@ -7,10 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    @Autowired
-    private CommentRepository repository;
-
-    public CommentRepository getRepository() {
-        return repository;
+    public UserService() {
+        System.out.println("UserService instance created!");
     }
 }
