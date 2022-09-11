@@ -1,10 +1,15 @@
 package kz.zhelezyaka.areasOfVisibilityBean.services;
 
-import org.springframework.context.annotation.Lazy;
+import kz.zhelezyaka.areasOfVisibilityBean.repositories.CommentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+@Service
 public class CommentService {
-    public CommentService() {
-        System.out.println("CommentService instance created!");
+    @Autowired
+    private CommentRepository commentRepository;
+
+    public CommentRepository getCommentRepository() {
+        return commentRepository;
     }
 }
