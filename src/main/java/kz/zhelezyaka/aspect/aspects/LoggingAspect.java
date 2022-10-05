@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class LoggingAspect {
     private Logger logger = Logger.getLogger(LoggingAspect.class.getName());
 
-    @Around("execution(* kz.zhelezyaka.aspect.services.*.*(..))")
+    @Around("@annotation(ToLog)")
     public Object log(ProceedingJoinPoint joinPoint) throws Throwable {
         String methodName = joinPoint.getSignature().getName();
         Object[] arguments = joinPoint.getArgs();
@@ -21,13 +21,9 @@ public class LoggingAspect {
                 " with parameters " + Arrays.asList(arguments) +
                 " will execute");
 
-        Comment comment = new Comment();
-        comment.setText("Some other text!");
-        Object[] newArguments = {comment};
-
-        Object returnedByMethod = joinPoint.proceed(newArguments);
+        Object returnedByMethod = joinPoint.proceed();
         logger.info("Method executed and returned " + returnedByMethod);
-        return "FAILED";
+        return returnedByMethod;
     }
 
     public void setLogger(Logger logger) {
