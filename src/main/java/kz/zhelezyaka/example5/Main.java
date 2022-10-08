@@ -1,4 +1,4 @@
-package kz.zhelezyaka;
+package kz.zhelezyaka.example5;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
