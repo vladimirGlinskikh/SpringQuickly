@@ -1,6 +1,7 @@
 package kz.zhelezyaka.example5.model;
 
 import kz.zhelezyaka.example5.services.LoggedUserManagementService;
+import kz.zhelezyaka.example5.services.LoginCountService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
@@ -8,14 +9,19 @@ import org.springframework.web.context.annotation.RequestScope;
 @RequestScope
 public class LoginProcessor {
     private final LoggedUserManagementService loggedUserManagementService;
+    private final LoginCountService loginCountService;
     private String username;
     private String password;
 
-    public LoginProcessor(LoggedUserManagementService loggedUserManagementService) {
+    public LoginProcessor(LoggedUserManagementService loggedUserManagementService,
+                          LoginCountService loginCountService) {
         this.loggedUserManagementService = loggedUserManagementService;
+        this.loginCountService = loginCountService;
     }
 
     public boolean login() {
+        loginCountService.increment();
+
         String username = this.getUsername();
         String password = this.getPassword();
 
