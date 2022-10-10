@@ -1,6 +1,10 @@
 package kz.zhelezyaka.restExample.model;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Country {
+    static final Logger log = LogManager.getLogger(Country.class.getName());
     private String name;
     private int population;
 
@@ -25,5 +29,11 @@ public class Country {
 
     public void setPopulation(int population) {
         this.population = population;
+    }
+
+    public boolean doIt() {
+        log.entry();
+        log.error("Did it again");
+        return log.exit(false);
     }
 }
