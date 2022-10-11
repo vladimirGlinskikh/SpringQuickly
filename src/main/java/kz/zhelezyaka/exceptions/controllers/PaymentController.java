@@ -1,29 +1,26 @@
 package kz.zhelezyaka.exceptions.controllers;
 
-import kz.zhelezyaka.exceptions.exceptions.NotEnoughMoneyException;
-import kz.zhelezyaka.exceptions.model.ErrorDetails;
 import kz.zhelezyaka.exceptions.model.PaymentDetails;
-import kz.zhelezyaka.exceptions.service.PaymentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.logging.Logger;
 
 @RestController
 public class PaymentController {
-    private final PaymentService paymentService;
-
-    public PaymentController(PaymentService paymentService) {
-        this.paymentService = paymentService;
-    }
+    private static Logger logger =
+            Logger.getLogger(PaymentController.class.getName());
 
     @PostMapping("/payment")
-    public ResponseEntity<?> makePayment() {
+    public ResponseEntity<PaymentDetails> makePayment(
+            @RequestBody PaymentDetails paymentDetails) {
+        logger.info("Received payment " + paymentDetails.getAmount());
 
-        PaymentDetails paymentDetails = paymentService.processPayment();
         return ResponseEntity
                 .status(HttpStatus.ACCEPTED)
                 .body(paymentDetails);
-
     }
 }
