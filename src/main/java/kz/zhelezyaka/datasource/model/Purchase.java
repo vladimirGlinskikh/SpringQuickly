@@ -1,6 +1,4 @@
-package kz.zhelezyaka.model;
-
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+package kz.zhelezyaka.datasource.model;
 
 import java.math.BigDecimal;
 import java.util.Objects;

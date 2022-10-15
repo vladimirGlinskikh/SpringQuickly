@@ -1,6 +1,6 @@
-package kz.zhelezyaka.repositories;
+package kz.zhelezyaka.datasource.repositories;
 
-import kz.zhelezyaka.model.Purchase;
+import kz.zhelezyaka.datasource.model.Purchase;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,7 @@
-package kz.zhelezyaka.controllers;
+package kz.zhelezyaka.datasource.controllers;
 
-import kz.zhelezyaka.model.Purchase;
-import kz.zhelezyaka.repositories.PurchaseRepository;
+import kz.zhelezyaka.datasource.model.Purchase;
+import kz.zhelezyaka.datasource.repositories.PurchaseRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

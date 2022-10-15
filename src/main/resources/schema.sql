@@ -3,15 +3,15 @@ CREATE DATABASE IF NOT EXISTS my_db;
 
 USE my_db;
 
-DROP TABLE IF EXISTS purchase;
+DROP TABLE IF EXISTS account;
 
-CREATE TABLE if not exists purchase
+CREATE TABLE if not exists account
 (
-    id      INT AUTO_INCREMENT PRIMARY KEY ,
-    product varchar(50) NOT NULL,
-    price   double      NOT NULL
+    id      INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    name varchar(50) NOT NULL,
+    amount   double      NOT NULL
 );
 
 SHOW TABLES;
 
-select * from purchase;
+select * from account;
